@@ -1,0 +1,11 @@
+[Unit]
+Description=Restart hdparm_stop after resume
+After=suspend.target
+
+[Service]
+Type=simple
+ExecStart=/bin/systemctl --no-block restart hdparm_stop.service
+# ExecStart=/usr/bin/systemctl --no-block restart bluetooth.service
+
+[Install]
+WantedBy=suspend.target

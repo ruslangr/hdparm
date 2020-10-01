@@ -1,0 +1,12 @@
+[Unit]
+Description = Stop 1TB HDD after 5 sec unusing
+
+[Service]
+RemainAfterExit=false
+ExecStart=/usr/local/bin/stop_1tb
+Type=oneshot
+After=mnt-hdd_1tb.mount
+
+[Install]
+WantedBy=multi-user.target suspend.target
+Alias=hdparm_stop.service
